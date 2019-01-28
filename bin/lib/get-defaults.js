@@ -43,6 +43,7 @@ function getDefaults (workPath, isEnterprise, callback) {
     if (!log) {
       return callback(new Error('CHANGELOG.md does not contain any versions'))
     }
+    pkg.version = log.version
     if (log.version !== pkg.version) {
       var errStr = 'CHANGELOG.md out of sync with package.json '
       errStr += '(' + (log.version || log.title) + ' !== ' + pkg.version + ')'
